@@ -1,6 +1,7 @@
 'use client';
 
-import { Feather, GridFeedCards, LogOutCircle, NotificationBell, Profile, Search } from '@/svg_components';
+import { Feather, GridFeedCards, LogOutCircle, NotificationBell, Profile, Search,
+    Calendar } from '@/svg_components';
 import { useSessionUserData } from '@/hooks/useSessionUserData';
 import { useNotificationsCountQuery } from '@/hooks/queries/useNotificationsCountQuery';
 import Link from 'next/link';
@@ -36,6 +37,7 @@ export function MenuBar() {
           route: '/notifications',
           badge: notificationCount,
         },
+        { title: 'Events', Icon: Calendar, route: '/event' },
         { title: 'My Profile', Icon: Profile, route: `/${username}` },
         {
           title: 'Logout',

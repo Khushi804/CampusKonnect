@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --background: 254 253 255;
-    --foreground: 16 0 35;
+    --background: 26 33 48;
+    --foreground: 251 243 255;
     --card: 44 78 128;
     --card-foreground: 125 138 188;
-    --popover: 251 251 254;
+    --popover: 205 193 255;
     --popover-foreground: 34 0 74;
     --primary: 255 197 90;
     --primary-foreground: 90 114 160;
@@ -31,9 +31,6 @@
     --ring: 1rem;
   }
   .dark {
-    --background: 26 33 48;
-    --foreground: 251 243 255;
-    --popover-foreground: 251 251 254;
     --primary-foreground: 250 240 255;
     --secondary: 40 42 54;
     --secondary-foreground: 204 208 222;

@@ -20,7 +20,7 @@ export function GenericDialog({ title, handleClose, children, ...props }: Generi
       ref={dialogRef}
       className="flex h-full w-full flex-col items-center overflow-y-auto p-2 sm:justify-center">
       <ResponsiveContainer>
-        <div className="mb-6 rounded-xl border border-border bg-popover">
+        <div className="mb-6 rounded-xl border border-border bg-black">
           <div className="relative mb-4 rounded-t-xl border-b border-b-border bg-card py-4">
             <h3 {...titleProps} className="text-center text-lg font-semibold">
               {title}
