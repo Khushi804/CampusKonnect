@@ -20,6 +20,7 @@ export const {
   signIn,
 } = NextAuth({
   ...authConfig,
+  secret: process.env.SECRET,
   providers: [
     ...authConfig.providers,
     {
@@ -36,14 +37,14 @@ export const {
         const sendEmailCommand = createSendEmailCommand(
           email,
           'noreply@norcio.dev',
-          'Login To Munia',
+          'Login To CampusKonnect',
           `<body>
   <table width="100%" border="0" cellspacing="20" cellpadding="0"
     style=" max-width: 600px; margin: auto; border-radius: 10px;">
     <tr>
       <td align="center"
         style="padding: 10px 0px; font-size: 22px; font-family: Helvetica, Arial, sans-serif;">
-        Login to <strong>Munia</strong>
+        Login to <strong>CampusKonnect</strong>
       </td>
     </tr>
     <tr>

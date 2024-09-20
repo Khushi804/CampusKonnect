@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { UserAuthForm } from '../UserAuthForm';
 
 export const metadata = {
-  title: 'Munia | Login',
+  title: 'CampusConnect | Login',
 };
 
 export default function Page() {

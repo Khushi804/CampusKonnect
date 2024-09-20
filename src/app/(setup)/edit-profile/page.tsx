@@ -2,7 +2,7 @@ import { EditProfileForm } from '@/components/EditProfileForm';
 import { ResponsiveContainer } from '@/components/ui/ResponsiveContainer';
 
 export const metadata = {
-  title: 'Munia | Edit Profile',
+  title: 'CampusConnect | Edit Profile',
 };
 
 export default function Page() {
