@@ -42,6 +42,15 @@ export async function serverWritePost({ formData, type, postId }: Props) {
     const body = postWriteSchema.parse(formDataToObject(formData));
 
     const { content, files } = body;
+
+    let data = await fetch(`http://127.0.0.1:5009/predict?text=${content}`)
+    data = await data.json();
+
+    console.log(data);
+    if (data.prediction != 2) {
+        return NextResponse.json({ error: 'I kill user. Steal your wife' }, { status: 403 });
+    }
+
     const { str, usersMentioned } = await convertMentionUsernamesToIds({
       str: content || '',
     });

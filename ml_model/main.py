@@ -1,5 +1,6 @@
-import re
+from flask import Flask, request, jsonify
 import joblib
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -8,73 +9,37 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import VotingClassifier
 from sklearn.metrics import accuracy_score, classification_report
-
-# Load the ensemble model
-ensemble_model = joblib.load('ensemble_model.pkl')
-
-# Load the TF-IDF vectorizer
-tfidf_vectorizer = joblib.load('tfidf_vectorizer.pkl')
-
-
-from flask import Flask, request, jsonify, render_template
-import joblib
-import re
+import warnings
+warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
 
-def preprocess_new_text(text):
-    # Same as the preprocessing function above
-    text = text.lower()
-    text = re.sub(r"http\S+|@\S+|#\S+", "", text)
-    text = re.sub(r"[^a-zA-Z\s]", "", text)
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
+# Load the pre-trained model and vectorizer
+model = joblib.load('ensemble_model.pkl')
+vectorizer = joblib.load('tfidf_vectorizer.pkl')
 
 
-# Custom offensive word list
-offensive_words = ['boobs', 'dickhead', '']
-
-
-def contains_offensive_word(text):
-    for word in offensive_words:
-        if word in text:
-            return True
-    return False
-
-
-def predict_content(text):
-    if contains_offensive_word(text):
-        return 1  # Flag as offensive based on custom list
-    # Same as the prediction function above
-    processed_text = preprocess_new_text(text)
-    text_vector = tfidf_vectorizer.transform([processed_text])
-    y_prob = ensemble_model.predict_proba(text_vector)
-    threshold = 0.7
-    prob = y_prob[0]
-    if prob[0] > threshold:
-        prediction = 0
-    else:
-        prediction = 1 if prob[1] > prob[2] else 2
-    return prediction
-
-
-# Home route to render the HTML form
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return "Content Filtering API is running!"
 
 
-@app.route('/predict', methods=['POST'])
+# API endpoint to handle predictions
+@app.route('/predict', methods=['GET'])
 def predict():
-    data = request.get_json()
-    text = data.get('text', '')
-    prediction = predict_content(text)
-    response = {
-        'prediction': prediction
-    }
-    return jsonify(response)
+    # Get the data (text) from the POST request
+    text = request.args.get('text')
+
+    # Preprocess and vectorize the input text
+    X_vectorized = vectorizer.transform([text])
+
+    # Make prediction
+    prediction = model.predict(X_vectorized)[0]
+
+    # Send the prediction result
+    return jsonify({'prediction': int(prediction)})
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    # Run the Flask app
+    app.run(debug=True, host='0.0.0.0', port=5009)
