@@ -43,8 +43,8 @@ export async function serverWritePost({ formData, type, postId }: Props) {
 
     const { content, files } = body;
 
-    let data = await fetch(`http://127.0.0.1:5009/predict?text=${content}`)
-    data = await data.json();
+    let resp = await fetch(`http://127.0.0.1:5009/predict?text=${content}`)
+    let data = await resp.json();
 
     console.log(data);
     if (data.prediction != 2) {

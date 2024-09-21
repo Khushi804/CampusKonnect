@@ -41,12 +41,12 @@ export const {
       async sendVerificationRequest({ identifier: email, url, provider }) {
         // Use nodemailer to send the email
         const transporter = nodemailer.createTransport({
-          host: provider.server.host,
-          port: provider.server.port,
+          host: 'smtp.gmail.com',
+          port: 465,
           secure: true, // Use SSL
           auth: {
-            user: provider.server.auth.user,
-            pass: provider.server.auth.pass,
+            user: "223186@theemcoe.org",
+            pass: process.env.EMAIL_SERVER_PASSWORD,
           },
         });
 

@@ -1,5 +1,4 @@
 import Calendar from 'react-calendar';
-import {Button} from "@nextui-org/button";
 import '@/components/css/Calendar.css'
 export const metadata = {
   title: 'CampusConnect | Event',
