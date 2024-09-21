@@ -3,7 +3,7 @@ import { DiscoverProfiles } from '@/components/DiscoverProfiles';
 import { DiscoverSearch } from '@/components/DiscoverSearch';
 
 export const metadata = {
-  title: 'CampusConnect | Discover',
+  title: 'CampusKonnect | Discover',
 };
 
 export default async function Discover() {

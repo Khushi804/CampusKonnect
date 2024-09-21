@@ -27,16 +27,16 @@ export function About({ profile }: { profile: GetUser }) {
         value={birthDate !== null ? format(new Date(birthDate), 'MMMM d, yyyy') : null}
         Icon={Calendar}
       />
-      <AboutItem field="Gender" value={gender && capitalize(gender)} Icon={Other} />
-      <AboutItem
+      <AboutItem field="Gender" value={gender && capitalize(gender)} Icon={BuildingBusinessOffice} />
+      {/* <AboutItem
         field="Relationship Status"
         value={relationshipStatus && capitalize(lowerCase(relationshipStatus))}
         Icon={Heart}
-      />
+      /> */}
       <AboutItem field="Bio" value={bio} Icon={Bullhorn} />
       <AboutItem field="Phone Number" value={phoneNumber} Icon={Phone} />
       <AboutItem field="Website" value={website} Icon={WorldNet} />
-      <AboutItem field="Address" value={address} Icon={BuildingBusinessOffice} />
+      {/* <AboutItem field="Address" value={address} Icon={BuildingBusinessOffice} /> */}
     </div>
   );
 }

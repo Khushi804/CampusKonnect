@@ -1,7 +1,7 @@
 import Calendar from 'react-calendar';
 import '@/components/css/Calendar.css'
 export const metadata = {
-  title: 'CampusConnect | Event',
+  title: 'CampusKonnect | Event',
 };
 
 export default async function Page() {

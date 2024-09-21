@@ -203,16 +203,16 @@ export function EditProfileForm({ redirectTo }: { redirectTo?: string }) {
           render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
             <div>
               <Select
-                label="Gender"
+                label="Department"
                 name="gender"
                 selectedKey={value || null}
                 onSelectionChange={(key) => onChange(key || null)}
                 errorMessage={error?.message}
                 ref={ref}
-                Icon={Other}>
-                <Item key="MALE">Male</Item>
-                <Item key="FEMALE">Female</Item>
-                <Item key="NONBINARY">Nonbinary</Item>
+                Icon={BuildingBusinessOffice}>
+                <Item key="MALE">Teacher</Item>
+                <Item key="FEMALE">Student</Item>
+                <Item key="NONBINARY">Staff</Item>
               </Select>
             </div>
           )}
@@ -224,17 +224,17 @@ export function EditProfileForm({ redirectTo }: { redirectTo?: string }) {
           render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
             <div>
               <Select
-                label="Relationship Status"
+                label="Branch"
                 name="relationshipStatus"
                 selectedKey={value || null}
                 onSelectionChange={(key) => onChange(key || null)}
                 errorMessage={error?.message}
-                Icon={Heart}
+                Icon={BuildingBusinessOffice}
                 ref={ref}>
-                <Item key="SINGLE">Single</Item>
-                <Item key="IN_A_RELATIONSHIP">In a relationship</Item>
-                <Item key="ENGAGED">Enganged</Item>
-                <Item key="MARRIED">Married</Item>
+                <Item key="SINGLE">IT</Item>
+                <Item key="IN_A_RELATIONSHIP">COMPS</Item>
+                <Item key="ENGAGED">AI/ML</Item>
+                <Item key="MARRIED">Mechanical</Item>
               </Select>
             </div>
           )}

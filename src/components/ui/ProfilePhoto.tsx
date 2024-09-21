@@ -14,15 +14,7 @@ export function ProfilePhoto({
 }) {
   return (
     <Link href={`/${username}`}>
-      {photoUrl ? (
-        <img
-          src={photoUrl}
-          alt={`${name}'s avatar`}
-          className="h-full w-full cursor-pointer rounded-full bg-muted object-cover"
-        />
-      ) : (
         <FallbackProfilePhoto name={name} className={fallbackAvatarClassName} />
-      )}
     </Link>
   );
 }

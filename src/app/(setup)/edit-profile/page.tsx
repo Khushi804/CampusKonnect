@@ -2,7 +2,7 @@ import { EditProfileForm } from '@/components/EditProfileForm';
 import { ResponsiveContainer } from '@/components/ui/ResponsiveContainer';
 
 export const metadata = {
-  title: 'CampusConnect | Edit Profile',
+  title: 'CampusKonnect | Edit Profile',
 };
 
 export default function Page() {
