@@ -37,6 +37,16 @@ export function MenuBar() {
           route: '/notifications',
           badge: notificationCount,
         },
+        {
+          title: 'AluminiConnect',
+          Icon: Calendar,
+          route: 'http://localhost:3000'
+        },
+        {
+          title: "Mentorship",
+          Icon: Calendar,
+          route: 'http://localhost:8000/interest.html'
+        },
         { title: 'Events', Icon: Calendar, route: '/event' },
         { title: 'My Profile', Icon: Profile, route: `/${username}` },
         {

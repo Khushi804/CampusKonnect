@@ -11,6 +11,9 @@ export default async function Page() {
             <div className="grid place-content-center">
                 <Calendar />
             </div>
+            <div>
+                <p>Hi</p>
+            </div>
         </div>
     );
 }
